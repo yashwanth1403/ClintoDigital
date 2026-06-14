@@ -1,0 +1,201 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-secondary-surface: var(--secondary-surface);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: var(--secondary-surface);
+  --color-secondary-foreground: var(--foreground);
+
+  --color-muted: var(--secondary-surface);
+  --color-muted-foreground: var(--muted);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-foreground: #ffffff;
+
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-ring-offset-background: var(--background);
+
+  --font-serif: "Cormorant Garamond", "Canela", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Backgrounds */
+  --background: #f7f5f2;
+  --surface: #ffffff;
+  --secondary-surface: #f2efeb;
+
+  /* Text */
+  --foreground: #1b1b1f;
+  --foreground-secondary: #4b5563;
+  --muted: #6b7280;
+
+  /* Brand */
+  --primary: #5b5bd6;
+  --primary-hover: #4c4cc9;
+  --primary-light: #ececff;
+
+  /* Accent */
+  --accent: #c76d3a;
+  --accent-light: #f8eee8;
+
+  /* Borders */
+  --border: #e5e0d9;
+  --border-light: #f0ece7;
+
+  /* Status */
+  --success: #22c55e;
+  --success-light: #dcfce7;
+}
+
+/* Dark mode intentionally mirrors light tokens — site is light-only. */
+.dark {
+  --background: #f7f5f2;
+  --surface: #ffffff;
+  --secondary-surface: #f2efeb;
+  --foreground: #1b1b1f;
+  --foreground-secondary: #4b5563;
+  --muted: #6b7280;
+  --primary: #5b5bd6;
+  --primary-hover: #4c4cc9;
+  --primary-light: #ececff;
+  --accent: #c76d3a;
+  --accent-light: #f8eee8;
+  --border: #e5e0d9;
+  --border-light: #f0ece7;
+  --success: #22c55e;
+  --success-light: #dcfce7;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-foreground);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: 9999px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 200ms ease, transform 200ms ease;
+  &:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: 9999px;
+  background-color: var(--color-surface);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: border-color 200ms ease, transform 200ms ease;
+  &:hover {
+    border-color: var(--color-foreground);
+    transform: translateY(-1px);
+  }
+}
+
+@utility card-surface {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border);
+    box-shadow: 0 8px 24px -16px rgba(27, 27, 31, 0.12);
+  }
+}
