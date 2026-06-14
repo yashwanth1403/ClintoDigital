@@ -13,6 +13,7 @@ export const googleBusinessProfileOptimization: ServiceContent = {
     ogTitle: "Google Business Profile Optimization — Rank Higher On Google Maps",
     ogDescription:
       "Strategic Google Business Profile optimization for clinics, doctors, dental practices, and local businesses. More visibility, more calls, more bookings.",
+    ogImage: "/images/services/google-business-profile-optimization.png",
   },
 
   hero: {

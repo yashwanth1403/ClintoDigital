@@ -52,6 +52,7 @@ const services = [
     icon: Smartphone,
     emoji: "📱",
     title: "Social Media Management",
+    image: "/images/services/social-media-management.png",
     description: "Build awareness, trust, engagement, and consistent content systems.",
     items: [
       "Content Strategy",
@@ -67,6 +68,7 @@ const services = [
     icon: MapPinned,
     emoji: "📍",
     title: "Google Business Profile Optimization",
+    image: "/images/services/google-business-profile-optimization.png",
     description: "Improve local visibility and attract more customers through Google Maps and local search.",
     items: [
       "GBP Setup",
@@ -81,6 +83,7 @@ const services = [
     icon: Search,
     emoji: "🔍",
     title: "SEO & AI Search Optimization",
+    image: "/images/services/seo-ai-search-optimization.png",
     description: "Improve visibility across traditional and AI-powered search platforms.",
     items: [
       "Technical SEO",
@@ -97,6 +100,7 @@ const services = [
     icon: Megaphone,
     emoji: "📢",
     title: "Google & Meta Ads",
+    image: "/images/services/google-meta-ads.png",
     description: "Generate leads through highly targeted advertising campaigns.",
     items: [
       "Google Ads",
@@ -110,6 +114,7 @@ const services = [
     icon: Monitor,
     emoji: "💻",
     title: "Website Development",
+    image: "/images/services/website-development.png",
     description: "Build websites and landing pages optimized for conversion and growth.",
     items: [
       "Business Websites",
@@ -123,6 +128,7 @@ const services = [
     icon: Bot,
     emoji: "🤖",
     title: "AI Automation",
+    image: "/images/services/ai-automation.png",
     description: "Automate lead qualification, customer communication, and appointment booking.",
     items: [
       "AI Voice Agents",
@@ -314,22 +320,18 @@ function ServicesPage() {
               >
                 {/* Visual side */}
                 <motion.div variants={fadeUp}>
-                  <div className="relative rounded-3xl border border-border bg-surface p-10 md:p-14 overflow-hidden">
-                    <div
-                      aria-hidden
-                      className="absolute -top-20 -right-20 h-64 w-64 rounded-full opacity-40"
-                      style={{
-                        background:
-                          "radial-gradient(circle, rgba(91,91,214,0.18), transparent 70%)",
-                      }}
+                  <div className="relative rounded-3xl border border-border bg-surface overflow-hidden aspect-[4/3] flex items-center justify-center shadow-sm group">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
                     />
-                    <div className="relative flex flex-col items-start gap-6">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary-surface">
-                        <Icon className="h-7 w-7 text-foreground" />
-                      </div>
-                      <div className="text-7xl md:text-8xl font-light tracking-tight text-foreground/10">
-                        0{idx + 1}
-                      </div>
+                    <div className="absolute top-6 left-6 flex h-12 w-12 items-center justify-center rounded-xl bg-surface/90 backdrop-blur-md shadow-sm border border-border">
+                      <Icon className="h-5 w-5 text-foreground" />
+                    </div>
+                    <div className="absolute bottom-6 right-6 text-4xl font-light tracking-tight text-foreground/35 bg-surface/80 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border border-border/50">
+                      0{idx + 1}
                     </div>
                   </div>
                 </motion.div>
